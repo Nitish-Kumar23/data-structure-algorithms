@@ -13,11 +13,10 @@ public class MinStack implements Serializable {
         MinNode node = new MinNode(val);
         if(stack.isEmpty()){
             node.setMinValue(val);
-            stack.push(node);
         }else {
             node.setMinValue(Math.min(val,stack.peek().getMinValue()));
-            stack.push(node);
         }
+        stack.push(node);
     }
 
     public void pop() {
