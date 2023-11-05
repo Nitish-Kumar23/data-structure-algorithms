@@ -1,4 +1,4 @@
-package Leetcode;
+package CrackingTheCodingInterview;
 
 import stack.Stack;
 
