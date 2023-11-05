@@ -6,20 +6,20 @@ import java.util.EmptyStackException;
 
 public class StackUsingArrayV1 {
 
-    private static int[] arr = new int[10];
+    private static final int[] arr = new int[10];
 
-    public int top1=-1;
+    private static int top1=-1;
 
-    public int top2=arr.length;
+    private static int top2=arr.length;
 
-    public class Stack1 implements Stack<Integer>{
+    public static class Stack1 implements Stack<Integer>{
 
         public Stack1() {
         }
 
         @Override
         public void push(Integer element) {
-            if(top1>=top2){
+            if(top1==top2-1){
                 throw new StackOverflowError();
             }
             arr[++top1]=element;
@@ -51,14 +51,14 @@ public class StackUsingArrayV1 {
         }
     }
 
-    public class Stack2 implements Stack<Integer>{
+    public static class Stack2 implements Stack<Integer>{
 
         public Stack2() {
         }
 
         @Override
         public void push(Integer element) {
-            if(top2<=top1){
+            if(top1==top2-1){
                 throw new StackOverflowError();
             }
             arr[--top2] = element;
@@ -90,27 +90,37 @@ public class StackUsingArrayV1 {
         }
     }
 
+    public int getTop1() {
+        return top1;
+    }
+
+    public void setTop1(int top1) {
+        this.top1 = top1;
+    }
+
+    public int getTop2() {
+        return top2;
+    }
+
+    public void setTop2(int top2) {
+        this.top2 = top2;
+    }
+
     public static void main(String[] args) {
-        Stack1 stack1 = new StackUsingArrayV1().new Stack1();
-        Stack2 stack2 = new StackUsingArrayV1().new Stack2();
+        Stack1 stack1 = new StackUsingArrayV1.Stack1();
+        Stack2 stack2 = new StackUsingArrayV1.Stack2();
         stack1.push(1);
         stack1.push(2);
         stack1.push(3);
-        System.out.println(stack1.peek());
-//        stack1.pop();
-        System.out.println(stack1.peek());
-        stack2.push(5);
-        stack2.push(7);
-        stack2.push(8);
+        stack1.push(1);
+        stack1.push(2);
+        stack1.push(3);
+        System.out.println(stack1.size());
+        stack2.push(1);
+        stack2.push(2);
+        stack2.push(3);
+        stack2.push(1);
         System.out.println(stack2.size());
-        stack2.pop();
-        System.out.println(stack2.peek());
-        stack1.push(4);
-        stack1.push(5);
-        System.out.println(stack1.peek());
-        System.out.println(stack1.size());
-        stack1.push(6);
-        System.out.println(stack1.size());
     }
 
 }
