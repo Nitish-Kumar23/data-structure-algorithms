@@ -9,7 +9,7 @@ public class BinarySearchTree <T extends  Comparable<T>> {
     private Node<T> root = null;
 
     // Internal class to represent node of the BST and add actual data in it
-    private static class Node<T extends Comparable<T>>{
+    public static class Node<T extends Comparable<T>>{
         private T data;
 
         private Node<T> left;
@@ -227,6 +227,11 @@ public class BinarySearchTree <T extends  Comparable<T>> {
         binarySearchTree.add(6);
         binarySearchTree.add(9);
         binarySearchTree.preOrderTraversal(binarySearchTree.root);
+
+        // verifying level order traversal logic here
+        LevelOrderTraversal levelOrderTraversal = new LevelOrderTraversal();
+        levelOrderTraversal.levelOrderTraversal(binarySearchTree.root);
+
         System.out.println();
         binarySearchTree.remove(-2);
         binarySearchTree.preOrderTraversal(binarySearchTree.root);
