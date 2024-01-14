@@ -1,5 +1,7 @@
 package binarytree;
 
+import leetcode.ZigZagLevelOrderTraversal;
+
 public class BinarySearchTree <T extends  Comparable<T>> {
 
     // Track number of nodes in  the BST
@@ -231,6 +233,11 @@ public class BinarySearchTree <T extends  Comparable<T>> {
         // verifying level order traversal logic here
         LevelOrderTraversal levelOrderTraversal = new LevelOrderTraversal();
         levelOrderTraversal.levelOrderTraversal(binarySearchTree.root);
+
+        // zig zag traversal logic here
+        ZigZagLevelOrderTraversal zigZagLevelOrderTraversal = new ZigZagLevelOrderTraversal();
+        zigZagLevelOrderTraversal.zigzagLevelOrder(binarySearchTree.root);
+
 
         System.out.println();
         binarySearchTree.remove(-2);
