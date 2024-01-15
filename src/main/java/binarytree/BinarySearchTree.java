@@ -1,5 +1,6 @@
 package binarytree;
 
+import leetcode.BinaryTreeLevelOrderTraversalII;
 import leetcode.ZigZagLevelOrderTraversal;
 
 public class BinarySearchTree <T extends  Comparable<T>> {
@@ -238,6 +239,8 @@ public class BinarySearchTree <T extends  Comparable<T>> {
         ZigZagLevelOrderTraversal zigZagLevelOrderTraversal = new ZigZagLevelOrderTraversal();
         zigZagLevelOrderTraversal.zigzagLevelOrder(binarySearchTree.root);
 
+        BinaryTreeLevelOrderTraversalII binaryTreeLevelOrderTraversalII = new BinaryTreeLevelOrderTraversalII();
+        binaryTreeLevelOrderTraversalII.levelOrderBottom(binarySearchTree.root);
 
         System.out.println();
         binarySearchTree.remove(-2);
