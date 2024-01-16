@@ -85,13 +85,18 @@ public class BinarySearchTree <T extends  Comparable<T>> {
     }
 
     /**
+     *              3
+     *          1        50
+     *       -2      10      100
+     */
+    /**
      * Internal method reference to recursively add nodes in a BST
      *
      * @param node
      * @param element
      * @return
      */
-    private Node<T> add(Node<T> node, T element) {
+    private Node<T> add(Node<T> node, T element) {  //5
         if(node==null){
             node = new Node<>(element);
             return node;
@@ -138,6 +143,12 @@ public class BinarySearchTree <T extends  Comparable<T>> {
         return false;
     }
 
+    /**
+     *              3
+     *           0        50
+     *       -2     10      100
+     *           0
+     */
     // Internal method to recursively remove element from the BST if it exists
     private Node<T> remove(Node<T> node, T element) {
         int cmp = element.compareTo(node.data);
@@ -165,7 +176,7 @@ public class BinarySearchTree <T extends  Comparable<T>> {
                 node.left = remove(node.left,node.data);
                 return node;
 
-//                returning largest node of left subtree
+//                returning smallest node of right subtree
 //                Node<T> rightLargest = digLeft(root.right);
 //                node.data = rightLargest.data;
 //
@@ -218,6 +229,14 @@ public class BinarySearchTree <T extends  Comparable<T>> {
         preOrderTraversal(node.right);
     }
 
+    /**
+     *              5
+     *           3       7
+     *        1       6      8
+     *     -2                      9
+     *
+     * @param args
+     */
     public static void main(String[] args){
         BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
         binarySearchTree.root = new Node<>(5);

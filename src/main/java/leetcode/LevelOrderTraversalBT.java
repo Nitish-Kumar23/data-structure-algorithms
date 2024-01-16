@@ -32,6 +32,12 @@ public class LevelOrderTraversalBT {
         result.set(level,list);
     }
 
+    /**
+     * []
+     *
+     * @param root
+     * @return
+     */
     public List<List<Integer>> levelOrderQueue(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if(root==null){
