@@ -12,7 +12,7 @@ public class LevelOrderTraversal {
 
     /**
      * method to perform level order traversal and display the result
-     *
+     * {[15], [10,20], [5,12]}
      * @param node
      */
     public void levelOrderTraversal(BinarySearchTree.Node<Integer> node){
@@ -20,6 +20,11 @@ public class LevelOrderTraversal {
         printTraversal();
     }
 
+    /**
+     *          15
+     *       10    20
+     *     5    12
+     */
     /**
      * Internal method for Level order traversal
      *
