@@ -1,6 +1,7 @@
 package binarytree;
 
 import leetcode.BinaryTreeLevelOrderTraversalII;
+import leetcode.FlattenBinaryTreeToLinkedList;
 import leetcode.ZigZagLevelOrderTraversal;
 
 public class BinarySearchTree <T extends  Comparable<T>> {
@@ -258,8 +259,12 @@ public class BinarySearchTree <T extends  Comparable<T>> {
         ZigZagLevelOrderTraversal zigZagLevelOrderTraversal = new ZigZagLevelOrderTraversal();
         zigZagLevelOrderTraversal.zigzagLevelOrder(binarySearchTree.root);
 
+        // level order traversal
         BinaryTreeLevelOrderTraversalII binaryTreeLevelOrderTraversalII = new BinaryTreeLevelOrderTraversalII();
         binaryTreeLevelOrderTraversalII.levelOrderBottom(binarySearchTree.root);
+
+        FlattenBinaryTreeToLinkedList flattenBinaryTreeToLinkedList = new FlattenBinaryTreeToLinkedList();
+        flattenBinaryTreeToLinkedList.flatten(binarySearchTree.root);
 
         System.out.println();
         binarySearchTree.remove(-2);
