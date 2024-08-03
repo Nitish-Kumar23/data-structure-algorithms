@@ -14,6 +14,10 @@ import java.util.List;
  */
 public class MinimumAbsoluteDiffBST {
 
+    private Integer ans = Integer.MAX_VALUE;
+
+    private Integer prev;
+
     public int getMinimumDifference(TreeNode root) {
         List<Integer> sortedList = new ArrayList<>();
         preOrder(root,sortedList);
@@ -42,6 +46,23 @@ public class MinimumAbsoluteDiffBST {
         preOrder(root.left,sortedList);
         sortedList.add(root.val);
         preOrder(root.right,sortedList);
+    }
+
+    public int getMinimumDifferenceV1(TreeNode root) {
+        preOrder(root);
+        return ans;
+    }
+
+    public void preOrder(TreeNode root) {
+        if(root==null){
+            return;
+        }
+        preOrder(root.left);
+        if(prev!=null){
+            ans = Math.min(ans,Math.abs(root.val-prev));
+        }
+        prev = root.val;
+        preOrder(root.right);
     }
 
 }
