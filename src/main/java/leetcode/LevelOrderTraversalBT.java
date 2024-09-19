@@ -1,6 +1,6 @@
 package leetcode;
 
-import baseclass.TreeNode;
+import models.TreeNode;
 
 import java.util.*;
 

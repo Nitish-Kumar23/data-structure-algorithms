@@ -1,5 +1,10 @@
 package leetcode;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -45,7 +50,7 @@ class RotateLinkedListRightByKElements {
             index++;
         }
 
-        // reassinging head and tail pointers
+        // reassigning head and tail pointers
         ListNode oldHead = head;
         head = current.next;
         current.next = null;
@@ -71,4 +76,6 @@ class RotateLinkedListRightByKElements {
             this.next = next;
         }
     }
+
+
 }

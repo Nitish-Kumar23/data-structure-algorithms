@@ -1,4 +1,4 @@
-package baseclass;
+package models;
 
 public class TreeNode {
       public int val;

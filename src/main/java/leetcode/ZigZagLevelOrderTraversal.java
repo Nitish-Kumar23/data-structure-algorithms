@@ -1,7 +1,7 @@
 package leetcode;
 
 
-import binarytree.BinarySearchTree;
+import models.BinarySearchTree;
 
 import java.util.*;
 

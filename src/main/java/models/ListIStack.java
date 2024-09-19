@@ -1,8 +1,8 @@
-package stack;
+package models;
 
 import java.util.EmptyStackException;
 
-public class ListStack<T> implements Stack<T> {
+public class ListIStack<T> implements IStack<T> {
 
     public static class StackNode<T> {
         private T data;

@@ -1,6 +1,6 @@
-package binarytree;
+package algorithms;
 
-import binarytree.BinarySearchTree;
+import models.BinarySearchTree;
 
 import java.util.ArrayList;
 import java.util.Collections;
