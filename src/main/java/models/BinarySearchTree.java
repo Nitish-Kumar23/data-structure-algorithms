@@ -1,5 +1,6 @@
-package binarytree;
+package models;
 
+import algorithms.LevelOrderTraversal;
 import leetcode.BinaryTreeLevelOrderTraversalII;
 import leetcode.FlattenBinaryTreeToLinkedList;
 import leetcode.ZigZagLevelOrderTraversal;

@@ -1,8 +1,5 @@
 package leetcode;
 
-import baseclass.TreeNode;
-import binarytree.BinarySearchTree;
-
 import java.util.LinkedList;
 import java.util.Queue;
 

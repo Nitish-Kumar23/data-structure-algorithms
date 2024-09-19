@@ -1,6 +1,4 @@
-package binarytree;
-
-import baseclass.TreeNode;
+package models;
 
 import java.util.Scanner;
 

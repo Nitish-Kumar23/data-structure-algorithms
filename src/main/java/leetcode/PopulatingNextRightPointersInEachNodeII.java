@@ -83,7 +83,6 @@ class PopulatingNextRightPointersInEachNodeII {
             }
 
         }
-
         return root;
     }
 

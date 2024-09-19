@@ -1,6 +1,6 @@
-package stack;
+package models;
 
-public interface Stack<T> {
+public interface IStack<T> {
 
     /**
      * add element to the top of stack
