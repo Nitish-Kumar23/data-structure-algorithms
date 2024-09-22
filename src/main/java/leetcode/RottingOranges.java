@@ -3,7 +3,7 @@ package leetcode;
 import java.util.*;
 
 class RottingOranges {
-    public int orangesRotting(int[][] grid) {
+    public static int orangesRotting(int[][] grid) {
         
         /**
         [2,1,1]  [2,2,1]
@@ -24,11 +24,11 @@ class RottingOranges {
 
 
         int t =0;
-
+        Set<String> set = new HashSet<>();
         while (true){
         Map<Integer,Integer> preStateVsCount = new HashMap<>();
         Map<Integer,Integer> stateVsCount = new HashMap<>();
-        List<List<Integer>> indexesList = populateIndexList(grid,rowSize,colSize,preStateVsCount);
+        List<List<Integer>> indexesList = populateIndexList(grid,rowSize,colSize,preStateVsCount,set);
 
         for(List<Integer> list : indexesList){
             int row = list.get(0);
@@ -81,7 +81,7 @@ class RottingOranges {
 
     }
 
-    private static List<List<Integer>> populateIndexList(int[][] grid,int rowSize,int colSize,Map<Integer,Integer> preStateVsCount){
+    private static List<List<Integer>> populateIndexList(int[][] grid,int rowSize,int colSize,Map<Integer,Integer> preStateVsCount,Set<String> set){
 
         List<List<Integer>> indexesList = new ArrayList<>();
         for(int i=0;i<rowSize;i++){
@@ -91,7 +91,12 @@ class RottingOranges {
                 }
                 if(grid[i][j]==2){
                     putOrUpdate(preStateVsCount,2);
+                    String key = String.join("_",String.valueOf(i),String.valueOf(j));
+                    if(set.contains(key)){
+                        continue;
+                    }
                     indexesList.add(Arrays.asList(i,j));
+                    set.add(key);
                 }
                 if(grid[i][j]==0){
                     putOrUpdate(preStateVsCount,0);
@@ -124,5 +129,10 @@ class RottingOranges {
         else {
             stateVsCount.put(key,1);
         }
+    }
+
+    public static void main(String[] args) {
+        int[][] arr = new int[][]{{2,1,1},{1,1,0},{0,1,1}};
+        System.out.println(orangesRotting(arr));
     }
 }
