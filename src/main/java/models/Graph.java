@@ -96,6 +96,50 @@ public class Graph {
 
     }
 
+    public List<Vertex> bfsShortestPath(Vertex source,Vertex target){
+        Map<Vertex,Vertex> predecessorMap = bfsTraversalWithPathInfo(source);
+
+        return recreatePath(predecessorMap,target);
+    }
+
+    private Map<Vertex,Vertex> bfsTraversalWithPathInfo(Vertex source){
+        Set<Vertex> visited = new LinkedHashSet<>();
+        Queue<Vertex> queue = new LinkedList<>();
+        Map<Vertex,Vertex> predecessorMap = new HashMap<>();
+        visited.add(source);
+        queue.add(source);
+        predecessorMap.put(source,null);
+
+        while (!queue.isEmpty()){
+            Vertex currentvertex = queue.poll();
+            for (Vertex neighbour : this.getAdjacencyVertices(currentvertex)){
+                if(!visited.contains(neighbour)){
+                    visited.add(neighbour);
+                    queue.add(neighbour);
+                    predecessorMap.put(neighbour,currentvertex);
+                }
+            }
+        }
+
+        return predecessorMap;
+
+    }
+
+    private List<Vertex> recreatePath(Map<Vertex,Vertex> predecessorMap,Vertex target){
+        List<Vertex> path = new ArrayList<>();
+        Vertex current = target;
+        path.add(current);
+        while (current!=null){
+            Vertex predecessorVertex = predecessorMap.get(current);
+            path.add(predecessorVertex);
+            current = predecessorVertex;
+        }
+
+        Collections.reverse(path);
+
+        return path;
+    }
+
     public Set<Vertex> depthFirstSearchTraversal(Vertex root){
         Set<Vertex> visited = new LinkedHashSet<>();
         Stack<Vertex> IStack = new Stack<>();
@@ -138,16 +182,17 @@ public class Graph {
         graph.addEdge(rob,giyan);
 
         System.out.println(graph.getAdjacencyVertices(bob).toString());
-
-        graph.removeEdge(alice,bob);
-        graph.removeEdge(rob,bob);
+//
+//        graph.removeEdge(alice,bob);
+//        graph.removeEdge(rob,bob);
 
         System.out.println(graph.getAdjacencyVertices(bob).toString());
 
-        graph.removeVertex(maria);
+//        graph.removeVertex(maria);
 
         System.out.println(graph.breadthFirstSearchTraversal(bob));
 
+        System.out.println(graph.bfsShortestPath(mark,bob));
 
         System.out.println(graph.depthFirstSearchTraversal(rob));
 
