@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class RandomAlgorithmSelector {
 
-    private static final List<String> algorithms = Arrays.asList("BINARY_SEARCH","SELECTION_SORT","QUICK_SORT","MERGE_SORT","BST_IMPLEMENTATION");
+    private static final List<String> algorithms = Arrays.asList("BINARY_SEARCH","SELECTION_SORT","QUICK_SORT","MERGE_SORT","BST_IMPLEMENTATION","DNF_ALGORITHM");
 
     public static final Random random = new Random();
     public static void main(String[] args) {
