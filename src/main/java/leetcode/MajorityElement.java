@@ -57,7 +57,9 @@ public class MajorityElement {
     }
 
     /**
-     * Moore voting algorithm
+     *
+     * The Boyer-Moore Majority Vote Algorithm
+     *
      * time - O(n)
      * space - O(1)
      * 
@@ -77,6 +79,25 @@ public class MajorityElement {
                 count--;
             }
         }
+        return candidate;
+    }
+
+    public static int majorityElementV2(int[] nums) {
+        int candidate = -1;
+        int count = 0;
+
+        for(int element : nums){
+            if(count==0){
+                candidate = element;
+            }
+
+            if(candidate==element){
+                count++;
+            }else{
+                count--;
+            }
+        }
+
         return candidate;
     }
     
