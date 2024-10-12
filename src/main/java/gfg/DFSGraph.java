@@ -24,7 +24,26 @@ class DFSGraph {
         }
         
         return list;
-        
-        
     }
+
+    public static List<Integer> dfsOfGraphV1(int v, ArrayList<ArrayList<Integer>> adj) {
+        boolean[] visited = new boolean[v+1];
+        List<Integer> response = new ArrayList<>();
+        dfs(0,adj,visited,response);
+
+        return response;
+    }
+
+    private static void dfs(int vertex,ArrayList<ArrayList<Integer>> adj,boolean[] visited,List<Integer> response){
+        visited[vertex] = true;
+        response.add(vertex);
+
+        for (Integer element : adj.get(vertex)){
+            if(!visited[element]) {
+                dfs(element, adj, visited, response);
+            }
+        }
+    }
+
+
 }
