@@ -18,6 +18,7 @@ class BFSGraph {
         System.out.println(bfsOfGraph(5,list));
 
     }
+
     // Function to return Breadth First Traversal of given graph.
     public ArrayList<Integer> bfsOfGraph(ArrayList<ArrayList<Integer>> adj) {
         Queue<Integer> queue = new LinkedList<>();
@@ -59,4 +60,5 @@ class BFSGraph {
 
         return response;
     }
+
 }
