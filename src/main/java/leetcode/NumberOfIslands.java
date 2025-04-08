@@ -22,6 +22,22 @@ class NumberOfIslands {
         return islandCount;
     }
 
+    private void dfs(int row,int col,boolean[][] visited,char[][] grid){
+        int[][] directions = new int[][]{{0,-1},{0,1},{-1,0},{1,0}};
+        visited[row][col] = true;
+        for (int[] arr : directions){
+            int newRow = row + arr[0];
+            int newCol = col + arr[1];
+            if(isValidForTraversal(visited, grid, newRow, newCol)){
+                dfs(newRow,newCol,visited,grid);
+            }
+        }
+    }
+
+    private static boolean isValidForTraversal(boolean[][] visited, char[][] grid, int newRow, int newCol) {
+        return newRow >= 0 && newRow < grid.length && newCol >= 0 && newCol < grid[0].length && !visited[newRow][newCol] && grid[newRow][newCol] == '1';
+    }
+
     private void traversal(int row,int col,boolean[][] visited,char[][] grid){
         Queue<List<Integer>> queue = new LinkedList<>();
         queue.add(Arrays.asList(row,col));
